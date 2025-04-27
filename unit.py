@@ -19,10 +19,10 @@ class Unit:
         self.attack_damage = attack_damage
         self.attack_message = attack_message
         self.isAlive = True
+        self.mob_id = 0
     
-    def set_unit():
+    def set_unit(mob_id):
         
-        mob_id = scrape_classicdb.get_mobid()
         name = scrape_classicdb.get_name(mob_id)
         stats = scrape_classicdb.get_stat(mob_id)
         if "armor" not in stats:
@@ -35,7 +35,10 @@ class Unit:
         print(f"mob.attack_damage = {mob.attack_damage}, type = {type(mob.attack_damage)}")
         
         return mob
+    
+    def get_mob_id():
         
+        return scrape_classicdb.get_mobid()
     
     def take_damage(self, enemy):
         if self.health > 0:
@@ -69,19 +72,15 @@ class Unit:
 
     
     def attack(self, enemy): #tiger(self) attack boar(enemy)
-        while self.isAlive and enemy.isAlive:
+        #while self.isAlive and enemy.isAlive:
             #self attacks first
 
-            enemy.take_damage(self) # boar take damage from tiger
-            time.sleep(1)
-            self.take_damage(enemy) #tiger take damage from boar
-            time.sleep(1)
-            
+        enemy.take_damage(self) # enemy takes damage from self (attacker)
+        time.sleep(1)
 
-mob1 = Unit.set_unit()
-mob2 = Unit.set_unit()
 
-mob1.attack(mob2)
+
+
 
                 
     
