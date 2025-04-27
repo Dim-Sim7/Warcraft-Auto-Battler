@@ -1,4 +1,6 @@
 # Warcraft-Auto-Battler
-Two random wow classic NPC's fight against each other
+Two random World of Warcraft Classic NPC's fight against each other.
 
-Run from unit.py
+Combat numbers calculated using official formulas
+
+Run from main.py
